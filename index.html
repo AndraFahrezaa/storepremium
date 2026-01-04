@@ -4,17 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Afaa x Rand Premium Store</title>
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <style>
         body { font-family: 'Inter', sans-serif; }
         
-        /* Custom Animations to match React version */
         .fade-in {
             animation: fadeIn 0.5s ease-out forwards;
         }
@@ -36,7 +32,6 @@
 </head>
 <body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
 
-    <!-- Navbar -->
     <nav class="bg-gray-900/80 backdrop-blur-md border-b border-gray-800 sticky top-0 z-50">
         <div class="max-w-3xl mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-2 cursor-pointer" onclick="renderHome()">
@@ -52,12 +47,9 @@
         </div>
     </nav>
 
-    <!-- Main Content Container -->
     <main id="app" class="flex-grow max-w-3xl mx-auto w-full px-4 py-8">
-        <!-- Content will be injected here by JavaScript -->
     </main>
 
-    <!-- Footer -->
     <footer class="bg-gray-950 border-t border-gray-800 py-8 mt-auto">
         <div class="max-w-3xl mx-auto px-4 text-center">
             <div class="flex justify-center space-x-6 mb-6 text-sm text-gray-400">
@@ -80,14 +72,11 @@
         </div>
     </footer>
 
-    <!-- JavaScript Logic -->
     <script>
-        // Set Year
         document.getElementById('year').textContent = new Date().getFullYear();
 
         const phoneNumber = "6285974972951";
 
-        // Data Produk
         const products = {
             am: {
                 id: 'am',
@@ -159,93 +148,168 @@
                         features: ['Invite Family Group', 'Murah Meriah', 'Fitur Sama Full', 'No Ads'],
                         msg: 'Min mau beli YouTube Premium Family Plan 1 bulan'
                     }
+                    
                 ]
-            }
+            },
+            spotify: {
+                id: 'spotify',
+                title: 'Spotify Premium',
+                subtitle: 'Musik Tanpa Iklan',
+                color: 'from-green-500 to-green-700',
+                icon: 'SP',
+                desc: 'Dengarkan musik tanpa iklan, skip bebas, dan kualitas audio tinggi.',
+                packages: [
+                    {
+                        name: '1 Bulan Premium',
+                        price: 'IDR 15.000',
+                        subPrice: 'MYR 3,64',
+                        features: [
+                'No Ads',
+                'Unlimited Skip',
+                'High Quality Audio',
+                'Free Garansi'
+            ],
+            msg: 'Min mau beli Spotify Premium 1 bulan'
+        }
+    ]
+},
+
+wink: {
+    id: 'wink',
+    title: 'Wink Premium',
+    subtitle: 'AI Video & Photo Enhancer',
+    color: 'from-pink-500 to-rose-700',
+    icon: 'WK',
+    desc: 'Unlock fitur AI premium untuk edit foto & video.',
+    packages: [
+        {
+            name: '1 Minggu Premium',
+            price: 'IDR 7.000',
+            subPrice: 'MYR 1,70',
+            features: [
+                'AI Enhancement',
+                'No Watermark',
+                'All Premium Tools',
+                'Fast Process'
+            ],
+            msg: 'Min mau beli Wink Premium 1 minggu'
+        }
+    ]
+}
+
         };
 
-        // Fungsi WhatsApp
         function handleWhatsApp(msg) {
             const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(msg)}`;
             window.open(url, '_blank');
         }
 
-        // Render Home View
         function renderHome() {
-            const app = document.getElementById('app');
-            app.innerHTML = `
-                <div class="fade-in">
-                    <div class="text-center mb-10 space-y-2">
-                        <h2 class="text-gray-400 text-sm uppercase tracking-widest font-semibold">Selamat Datang di</h2>
-                        <h1 class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
-                            Afaa x Rand
-                        </h1>
-                        <div class="flex items-center justify-center space-x-2 my-4">
-                            <span class="h-px w-8 bg-gray-700"></span>
-                            <span class="text-xl font-bold text-white tracking-wide">PREMIUM STORE</span>
-                            <span class="h-px w-8 bg-gray-700"></span>
-                        </div>
-                        <p class="text-gray-400 mt-4 max-w-lg mx-auto">
-                            Pusat aplikasi premium termurah dan terpercaya. Jual Alight Motion Premium, CapCut Pro, dan YouTube Premium.
-                        </p>
-                    </div>
-
-                    <div class="grid grid-cols-2 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
-                        <!-- Alight Motion -->
-                        <div onclick="renderDetail('am')" class="group cursor-pointer bg-gray-800 rounded-2xl p-4 md:p-6 border border-gray-700 hover:border-emerald-500 transition-all duration-300 hover:-translate-y-1 shadow-xl relative overflow-hidden">
-                            <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                            <div class="h-32 md:h-40 rounded-xl mb-4 overflow-hidden shadow-lg">
-                            <img src="alightmotion.png"  
-                            alt="Alight Motion Premium"
-                            class="w-full h-full object-cover">
-                            </div>
-
-                            <h3 class="text-white font-bold text-lg md:text-xl text-center group-hover:text-emerald-400 transition-colors">Alight Motion</h3>
-                            <p class="text-gray-400 text-xs md:text-sm text-center mb-3">Premium Video Editor</p>
-                            <button class="w-full bg-gray-700 group-hover:bg-emerald-600 text-white text-sm py-2 rounded-lg transition-colors font-medium">Lihat Paket</button>
-                        </div>
-
-                        <!-- CapCut -->
-                        <div onclick="renderDetail('capcut')" class="group cursor-pointer bg-gray-800 rounded-2xl p-4 md:p-6 border border-gray-700 hover:border-gray-400 transition-all duration-300 hover:-translate-y-1 shadow-xl relative overflow-hidden">
-                            <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                            <div class="h-32 md:h-40 rounded-xl mb-4 overflow-hidden shadow-lg">
-                            <img src="CapCut.png"  
-                            alt="CapCut Pro"
-                            class="w-full h-full object-cover">
-                            </div>
-                            <h3 class="text-white font-bold text-lg md:text-xl text-center group-hover:text-gray-300 transition-colors">CapCut Pro</h3>
-                            <p class="text-gray-400 text-xs md:text-sm text-center mb-3">All-in-one Editor</p>
-                            <button class="w-full bg-gray-700 group-hover:bg-gray-600 text-white text-sm py-2 rounded-lg transition-colors font-medium">Lihat Paket</button>
-                        </div>
-
-                        <!-- YouTube -->
-                        <div onclick="renderDetail('youtube')" class="group cursor-pointer col-span-2 md:col-span-2 bg-gray-800 rounded-2xl p-4 md:p-6 border border-gray-700 hover:border-red-500 transition-all duration-300 hover:-translate-y-1 shadow-xl relative overflow-hidden">
-                            <div class="absolute inset-0 bg-gradient-to-br from-red-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                            <div class="flex flex-col md:flex-row items-center gap-4">
-                            <div class="h-32 md:h-40 rounded-xl mb-4 overflow-hidden shadow-lg">
-                            <img src="youtube.png"  
-                            alt="YouTube Premium"
-                            class="w-full h-full object-cover">
-                            </div>
-                                <div class="flex-1 text-center md:text-left">
-                                    <h3 class="text-white font-bold text-lg md:text-2xl group-hover:text-red-400 transition-colors">YouTube Premium</h3>
-                                    <p class="text-gray-400 text-sm mb-4">Nonton bebas iklan, background play & music.</p>
-                                    <button class="w-full md:w-auto px-8 bg-gray-700 group-hover:bg-red-600 text-white text-sm py-2 rounded-lg transition-colors font-medium">Lihat Paket</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    const app = document.getElementById('app');
+    app.innerHTML = `
+        <div class="fade-in">
+            <div class="text-center mb-10 space-y-2">
+                <h2 class="text-gray-400 text-sm uppercase tracking-widest font-semibold">Selamat Datang di</h2>
+                <h1 class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
+                    Afaa x Rand
+                </h1>
+                <div class="flex items-center justify-center space-x-2 my-4">
+                    <span class="h-px w-8 bg-gray-700"></span>
+                    <span class="text-xl font-bold text-white tracking-wide">PREMIUM STORE</span>
+                    <span class="h-px w-8 bg-gray-700"></span>
                 </div>
-            `;
-            lucide.createIcons();
-            window.scrollTo(0, 0);
-        }
+                <p class="text-gray-400 mt-4 max-w-lg mx-auto">
+                    Pusat aplikasi premium termurah dan terpercaya.
+                </p>
+            </div>
 
-        // Render Detail View
+            <div class="grid grid-cols-2 gap-4 max-w-2xl mx-auto">
+
+                <!-- Alight Motion -->
+                <div onclick="renderDetail('am')" class="group cursor-pointer bg-gray-800 rounded-2xl p-4 border border-gray-700 hover:border-emerald-500 transition-all hover:-translate-y-1 shadow-xl relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-transparent opacity-0 group-hover:opacity-100 transition"></div>
+                    <div class="h-32 rounded-xl mb-4 overflow-hidden">
+                        <img src="alightmotion.png" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-center font-bold group-hover:text-emerald-400">Alight Motion</h3>
+                    <p class="text-center text-xs text-gray-400 mb-3">Premium Video Editor</p>
+                    <button class="w-full bg-gray-700 group-hover:bg-emerald-600 py-2 rounded-lg text-sm">Lihat Paket</button>
+                </div>
+
+                <!-- CapCut -->
+                <div onclick="renderDetail('capcut')" class="group cursor-pointer bg-gray-800 rounded-2xl p-4 border border-gray-700 hover:border-gray-400 transition-all hover:-translate-y-1 shadow-xl relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition"></div>
+                    <div class="h-32 rounded-xl mb-4 overflow-hidden">
+                        <img src="CapCut.png" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-center font-bold group-hover:text-gray-300">CapCut Pro</h3>
+                    <p class="text-center text-xs text-gray-400 mb-3">All-in-one Editor</p>
+                    <button class="w-full bg-gray-700 group-hover:bg-gray-600 py-2 rounded-lg text-sm">Lihat Paket</button>
+                </div>
+
+                <!-- YouTube -->
+                <div onclick="renderDetail('youtube')" class="group cursor-pointer bg-gray-800 rounded-2xl p-4 border border-gray-700 hover:border-red-500 transition-all hover:-translate-y-1 shadow-xl relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-red-500/10 to-transparent opacity-0 group-hover:opacity-100 transition"></div>
+                    <div class="h-32 rounded-xl mb-4 overflow-hidden">
+                        <img src="youtube.png" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-center font-bold group-hover:text-red-400">YouTube Premium</h3>
+                    <p class="text-center text-xs text-gray-400 mb-3">No Ads & Background Play</p>
+                    <button class="w-full bg-gray-700 group-hover:bg-red-600 py-2 rounded-lg text-sm">Lihat Paket</button>
+                </div>
+
+                <!-- Spotify -->
+                <div onclick="renderDetail('spotify')" class="group cursor-pointer bg-gray-800 rounded-2xl p-4 border border-gray-700 hover:border-green-500 transition-all hover:-translate-y-1 shadow-xl relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-green-500/10 to-transparent opacity-0 group-hover:opacity-100 transition"></div>
+                    <div class="h-32 rounded-xl mb-4 overflow-hidden">
+                        <img src="spotify.png" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-center font-bold group-hover:text-green-400">Spotify Premium</h3>
+                    <p class="text-center text-xs text-gray-400 mb-3">Music Without Limits</p>
+                    <button class="w-full bg-gray-700 group-hover:bg-green-600 py-2 rounded-lg text-sm">Lihat Paket</button>
+                </div>
+
+                <!-- Wink -->
+                <div onclick="renderDetail('wink')" class="group cursor-pointer bg-gray-800 rounded-2xl p-4 border border-gray-700 hover:border-pink-500 transition-all hover:-translate-y-1 shadow-xl relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-pink-500/10 to-transparent opacity-0 group-hover:opacity-100 transition"></div>
+                    <div class="h-32 rounded-xl mb-4 overflow-hidden">
+                        <img src="wink.png" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-center font-bold group-hover:text-pink-400">Wink Premium</h3>
+                    <p class="text-center text-xs text-gray-400 mb-3">AI Photo Enhancer</p>
+                    <button class="w-full bg-gray-700 group-hover:bg-pink-600 py-2 rounded-lg text-sm">Lihat Paket</button>
+                </div>
+
+                <!-- Coming Soon -->
+                <div class="group bg-gray-800 rounded-2xl p-4 border border-dashed border-gray-600 shadow-xl relative overflow-hidden">
+
+                <!-- Image -->
+                <div class="h-32 rounded-xl mb-4 overflow-hidden bg-gray-700 flex items-center justify-center text-4xl font-black text-gray-500">
+                    ?
+                </div>
+
+                <!-- Title -->
+                <h3 class="text-center font-bold text-gray-400">Coming Soon</h3>
+                <p class="text-center text-xs text-gray-500 mb-3">Produk Selanjutnya</p>
+
+                <!-- Button -->
+                <button class="w-full bg-gray-700 text-gray-500 py-2 rounded-lg text-sm cursor-not-allowed">
+                Segera Hadir
+                </button>
+                </div>
+
+            </div>
+        </div>
+    `;
+    lucide.createIcons();
+    window.scrollTo(0, 0);
+}
+
         function renderDetail(productId) {
             const product = products[productId];
             const app = document.getElementById('app');
 
-            // Generate features list HTML
+
             const generateFeatures = (features) => {
                 return features.map(feat => `
                     <li class="flex items-center text-gray-300 text-sm">
@@ -255,7 +319,6 @@
                 `).join('');
             };
 
-            // Generate packages HTML
             const generatePackages = () => {
                 return product.packages.map((pkg, idx) => `
                     <div class="bg-gray-800 border border-gray-700 rounded-2xl p-6 hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 flex flex-col justify-between">
@@ -327,7 +390,6 @@
             window.scrollTo(0, 0);
         }
 
-        // Initial Render
         renderHome();
     </script>
 </body>
