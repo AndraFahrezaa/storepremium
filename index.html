@@ -202,6 +202,88 @@ wink: {
             msg: 'Min mau beli Wink Premium 1 minggu'
         }
     ]
+},
+
+video: {
+    id: 'video',
+    title: 'Video Premium',
+    subtitle: 'Video Tools & Access',
+    color: 'from-blue-500 to-indigo-700',
+    icon: 'VD',
+    desc: 'Akses premium untuk kebutuhan video editing dan resource.',
+    packages: [
+        {
+            name: '1 Bulan SHARING',
+            price: 'IDR 15.000',
+            subPrice: 'MYR 1,21',
+            features: [
+                'Akun Sharing',
+                'Full Access Video Tools',
+                'No Watermark',
+                'Fast Process'
+            ],
+            msg: 'Min mau beli Video Premium SHARING 1 bulan'
+        },
+        {
+            name: '1 Bulan PRIVATE',
+            price: 'IDR 25.000',
+            subPrice: 'MYR 6,05',
+            features: [
+                'Akun Private',
+                'Full Access Video Tools',
+                'No Watermark',
+                'Garansi'
+            ],
+            msg: 'Min mau beli Video Premium PRIVATE 1 bulan'
+        }
+    ]
+},
+
+canva: {
+    id: 'canva',
+    title: 'Canva Premium',
+    subtitle: 'Design Tanpa Batas',
+    color: 'from-purple-500 to-fuchsia-700',
+    icon: 'CV',
+    desc: 'Unlock semua template, elemen, dan fitur Canva Pro & Edu.',
+    packages: [
+        {
+            name: '1 Bulan',
+            price: 'IDR 5.000',
+            subPrice: 'MYR 1,21',
+            features: [
+                'Template Premium',
+                'No Watermark',
+                'Pro Elements',
+                'Fast Process'
+            ],
+            msg: 'Min mau beli Canva Premium 1 bulan'
+        },
+        {
+            name: '1 Tahun',
+            price: 'IDR 15.000',
+            subPrice: 'MYR 3,63',
+            features: [
+                'Template Premium',
+                'Pro Elements',
+                'Brand Kit',
+                'Garansi'
+            ],
+            msg: 'Min mau beli Canva Premium 1 tahun'
+        },
+        {
+            name: 'Edu Lifetime',
+            price: 'IDR 25.000',
+            subPrice: 'MYR 6,05',
+            features: [
+                'Lifetime Access',
+                'Canva Edu',
+                'All Pro Features',
+                'Private Account'
+            ],
+            msg: 'Min mau beli Canva Edu Lifetime'
+        }
+    ]
 }
 
         };
@@ -286,6 +368,29 @@ wink: {
                     <p class="text-center text-xs text-gray-400 mb-3">AI Photo Enhancer</p>
                     <button class="w-full bg-gray-700 group-hover:bg-pink-600 py-2 rounded-lg text-sm">Lihat Paket</button>
                 </div>
+
+                <!-- Video -->
+    <div onclick="renderDetail('video')" class="group cursor-pointer bg-gray-800 rounded-2xl p-4 border border-gray-700 hover:border-blue-500 transition-all hover:-translate-y-1 shadow-xl relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition"></div>
+    <div class="h-32 rounded-xl mb-4 overflow-hidden">
+        <img src="video.png" class="w-full h-full object-cover">
+    </div>
+    <h3 class="text-center font-bold group-hover:text-blue-400">Video Premium</h3>
+    <p class="text-center text-xs text-gray-400 mb-3">Video Tools Access</p>
+    <button class="w-full bg-gray-700 group-hover:bg-blue-600 py-2 rounded-lg text-sm">Lihat Paket</button>
+    </div>
+
+                <!-- Canva -->
+    <div onclick="renderDetail('canva')" class="group cursor-pointer bg-gray-800 rounded-2xl p-4 border border-gray-700 hover:border-purple-500 transition-all hover:-translate-y-1 shadow-xl relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition"></div>
+    <div class="h-32 rounded-xl mb-4 overflow-hidden">
+        <img src="canva.png" class="w-full h-full object-cover">
+    </div>
+    <h3 class="text-center font-bold group-hover:text-purple-400">Canva Premium</h3>
+    <p class="text-center text-xs text-gray-400 mb-3">Design Without Limits</p>
+    <button class="w-full bg-gray-700 group-hover:bg-purple-600 py-2 rounded-lg text-sm">Lihat Paket</button>
+    </div>
+
 
                 <!-- Coming Soon -->
                 <div class="group bg-gray-800 rounded-2xl p-4 border border-dashed border-gray-600 shadow-xl relative overflow-hidden">
