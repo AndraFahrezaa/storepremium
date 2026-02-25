@@ -284,7 +284,74 @@ canva: {
             msg: 'Min mau beli Canva Edu Lifetime'
         }
     ]
-}
+},
+            netflix: {
+    id: 'netflix',
+    title: 'Netflix Premium',
+    subtitle: 'Streaming Tanpa Batas',
+    color: 'from-red-700 to-black',
+    icon: 'NF',
+    desc: 'Nonton film & series favorit tanpa gangguan.',
+    packages: [
+        {
+            name: '1 Bulan 1P1U',
+            price: 'IDR 30.000',
+            subPrice: 'MYR 7,26',
+            features: [
+                '1 Profile 1 User',
+                'Full Access',
+                'Full HD / UHD',
+                'Garansi'
+            ],
+            msg: 'Min mau beli Netflix 1 Bulan 1P1U'
+        },
+        {
+            name: '7 Hari 1P1U',
+            price: 'IDR 11.000',
+            subPrice: 'MYR 2,66',
+            features: [
+                '1 Profile 1 User',
+                'Full Access',
+                'Full HD / UHD',
+                'Garansi'
+            ],
+            msg: 'Min mau beli Netflix 7 Hari 1P1U'
+        },
+        {
+            name: '5 Hari 1P1U',
+            price: 'IDR 9.000',
+            subPrice: 'MYR 2,18',
+            features: [
+                '1 Profile 1 User',
+                'Full Access',
+                'Private Slot'
+            ],
+            msg: 'Min mau beli Netflix 5 Hari 1P1U'
+        },
+        {
+            name: '3 Hari 1P1U',
+            price: 'IDR 7.000',
+            subPrice: 'MYR 1,70',
+            features: [
+                '1 Profile 1 User',
+                'Full Access',
+                'Full HD / UHD'
+            ],
+            msg: 'Min mau beli Netflix 3 Hari 1P1U'
+        },
+        {
+            name: '1 Hari 1P1U',
+            price: 'IDR 5.000',
+            subPrice: 'MYR 1,21',
+            features: [
+                '1 Profile 1 User',
+                'Full Access',
+                'Full HD / UHD'
+            ],
+            msg: 'Min mau beli Netflix 1 Hari 1P1U'
+        }
+    ]
+},
 
         };
 
@@ -391,7 +458,16 @@ canva: {
     <button class="w-full bg-gray-700 group-hover:bg-purple-600 py-2 rounded-lg text-sm">Lihat Paket</button>
     </div>
 
-
+<!-- Netflix -->
+<div onclick="renderDetail('netflix')" class="group cursor-pointer bg-gray-800 rounded-2xl p-4 border border-gray-700 hover:border-red-600 transition-all hover:-translate-y-1 shadow-xl relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-red-600/10 to-transparent opacity-0 group-hover:opacity-100 transition"></div>
+    <div class="h-32 rounded-xl mb-4 overflow-hidden">
+        <img src="netflix.png" class="w-full h-full object-cover">
+    </div>
+    <h3 class="text-center font-bold group-hover:text-red-500">Netflix Premium</h3>
+    <p class="text-center text-xs text-gray-400 mb-3">Streaming Tanpa Batas</p>
+    <button class="w-full bg-gray-700 group-hover:bg-red-600 py-2 rounded-lg text-sm">Lihat Paket</button>
+</div>
                 <!-- Coming Soon -->
                 <div class="group bg-gray-800 rounded-2xl p-4 border border-dashed border-gray-600 shadow-xl relative overflow-hidden">
 
@@ -506,6 +582,7 @@ canva: {
     </script>
 </body>
 </html>
+
 
 
 
