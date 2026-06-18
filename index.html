@@ -29,13 +29,22 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Menyembunyikan scrollbar untuk pengalaman navigasi yang lebih bersih */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
+        /* Desain Bar Indikator Scroll Premium di bawah menu Kategori */
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 4px; /* Sangat tipis & elegan */
         }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #1f2937; /* gray-800 sebagai rel track */
+            border-radius: 9999px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            /* Gradasi warna biru ke ungu mewah yang menyala */
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6); 
+            border-radius: 9999px;
+        }
+        .custom-scrollbar {
+            -ms-overflow-style: auto;
+            scrollbar-width: thin;
         }
     </style>
 </head>
@@ -60,13 +69,12 @@
     <main id="app" class="flex-grow max-w-3xl mx-auto w-full px-4 py-8">
     </main>
 
-    <!-- Card Pertanyaan yang Sering Diajukan (Akordeon Interaktif) -->
-    <section class="max-w-3xl mx-auto w-full px-4 pb-12 fade-in">
+    <section id="faq-section" class="max-w-3xl mx-auto w-full px-4 pb-12 fade-in">
         <div class="text-center mb-8">
-            <h2 class="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
+            <h2 class="text-lg md:text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 truncate px-2">
                 Pertanyaan yang Sering Diajukan
             </h2>
-            <div class="h-1 w-20 bg-blue-500 rounded-full mx-auto mt-2"></div>
+            <div class="h-1 w-16 bg-blue-500 rounded-full mx-auto mt-2"></div>
         </div>
         
         <div class="max-w-2xl mx-auto space-y-2">
@@ -78,8 +86,8 @@
                     </span>
                     <i id="faq-icon-1" data-lucide="chevron-down" class="w-5 h-5 text-gray-500 transition-transform duration-300 shrink-0"></i>
                 </button>
-                <div id="faq-content-1" class="hidden pb-4 text-gray-400 text-xs md:text-sm leading-relaxed slide-up pl-8">
-                    Cukup pilih produk premium yang Anda inginkan, tentukan jenis paket (Private/Sharing/Durasi), klik "Pesan via WhatsApp". Anda akan diarahkan ke form pemesanan interaktif untuk melengkapi detail transaksi sebelum mengirim chat otomatis ke Admin.
+                <div id="faq-content-1" class="hidden pb-4 text-gray-400 text-xs md:text-sm leading-relaxed slide-up pl-4">
+                    Cukup pilih produk premium yang Anda inginkan, tentukan jenis paket (Private/Sharing/Durasi), klik "Pesan via WhatsApp". Anda akan mengirim chat otomatis ke Admin.
                 </div>
             </div>
 
@@ -91,7 +99,7 @@
                     </span>
                     <i id="faq-icon-2" data-lucide="chevron-down" class="w-5 h-5 text-gray-500 transition-transform duration-300 shrink-0"></i>
                 </button>
-                <div id="faq-content-2" class="hidden pb-4 text-gray-400 text-xs md:text-sm leading-relaxed slide-up pl-8">
+                <div id="faq-content-2" class="hidden pb-4 text-gray-400 text-xs md:text-sm leading-relaxed slide-up pl-4">
                     <span class="text-purple-400 font-semibold block mb-1">Paket Private:</span> Akun sepenuhnya milik Anda sendiri, bebas buat profil & tanpa gangguan layar penuh.
                     <span class="text-purple-400 font-semibold block mt-2 mb-1">Paket Sharing:</span> Akun digunakan bersama pengguna lain dalam batasan wajar, harga jauh lebih murah dan hemat.
                 </div>
@@ -105,14 +113,26 @@
                     </span>
                     <i id="faq-icon-3" data-lucide="chevron-down" class="w-5 h-5 text-gray-500 transition-transform duration-300 shrink-0"></i>
                 </button>
-                <div id="faq-content-3" class="hidden pb-4 text-gray-400 text-xs md:text-sm leading-relaxed slide-up pl-8">
+                <div id="faq-content-3" class="hidden pb-4 text-gray-400 text-xs md:text-sm leading-relaxed slide-up pl-4">
                     Ya, tentu saja! Kami memberikan garansi penuh sesuai durasi paket yang Anda beli. Jika ada kendala seperti limit screen atau akun premium ter-reset, hubungi Admin melalui WhatsApp dan akan segera dibantu perbaikan atau penggantian akun.
+                </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="border-b border-gray-800 pb-3">
+                <button onclick="toggleFaq(4)" class="w-full flex justify-between items-center text-left py-4 text-gray-100 hover:text-blue-400 transition focus:outline-none group">
+                    <span class="font-bold text-sm md:text-base flex items-center text-gray-100 group-hover:text-blue-400 transition">
+                        Metode pembayaran yang tersedia?
+                    </span>
+                    <i id="faq-icon-4" data-lucide="chevron-down" class="w-5 h-5 text-gray-500 transition-transform duration-300 shrink-0"></i>
+                </button>
+                <div id="faq-content-4" class="hidden pb-4 text-gray-400 text-xs md:text-sm leading-relaxed slide-up pl-4">
+                    Kami menerima pembayaran melalui DANA, OVO, GoPay, ShopeePay, QRIS, Transfer Bank, dan metode pembayaran digital lainnya. Silakan hubungi admin untuk informasi lebih lanjut.
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-gray-950 border-t border-gray-800 py-8 mt-auto">
         <div class="max-w-3xl mx-auto px-4 text-center">
             <div class="flex justify-center space-x-6 mb-6 text-sm text-gray-400">
@@ -459,6 +479,12 @@
         }
 
         function renderHome() {
+            // Tampilkan kembali section FAQ saat berada di halaman utama
+            const faqSection = document.getElementById('faq-section');
+            if (faqSection) {
+                faqSection.classList.remove('hidden');
+            }
+
             const app = document.getElementById('app');
             app.innerHTML = `
                 <div class="fade-in">
@@ -478,20 +504,20 @@
                         </p>
                     </div>
 
-                    <!-- Banner Bukti Transaksi & Review -->
+                    <!-- Banner Bukti Transaksi & Review (Gaya Tombol Testimoni Diperjelas) -->
                     <div class="max-w-md mx-auto mb-6 text-center">
-                        <div class="inline-flex flex-wrap items-center justify-center gap-2 bg-blue-950/40 border border-blue-900/40 rounded-2xl px-4 py-2 text-xs md:text-sm text-blue-300">
+                        <div class="inline-flex flex-wrap items-center justify-center gap-2 bg-blue-950/40 border border-blue-900/40 rounded-2xl px-4 py-2.5 text-xs md:text-sm text-blue-300">
                             <span class="flex items-center gap-1.5 font-medium">
                                 <i data-lucide="shield-check" class="w-4 h-4 text-blue-400"></i>
                                 Bukti transaksi & review pelanggan tersedia.
                             </span>
-                            <a href="https://whatsapp.com/channel/0029VbDFxUHCXC3Q8WJmJD2a" target="_blank" class="font-bold text-blue-400 hover:text-blue-300 underline flex items-center gap-0.5 transition active:scale-95">
-                                Testimoni <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                            <a href="https://whatsapp.com/channel/0029VbDFxUHCXC3Q8WJmJD2a" target="_blank" class="inline-flex items-center gap-1 px-3 py-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-bold rounded-lg text-xs transition duration-200 shadow-md shadow-blue-500/10 active:scale-95 select-none transform hover:-translate-y-0.5">
+                                Lihat Testimoni <i data-lucide="external-link" class="w-3 h-3"></i>
                             </a>
                         </div>
                     </div>
 
-                    <!-- Input Bar Pencarian (Menjaga agar pengetikan tidak kehilangan fokus) -->
+                    <!-- Input Bar Pencarian (Terletak paling atas) -->
                     <div class="max-w-md mx-auto mb-6 relative">
                         <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
                             <i data-lucide="search" class="w-5 h-5"></i>
@@ -509,12 +535,12 @@
                     <!-- Petunjuk Geser Kategori (Hanya Muncul di Layar HP) -->
                     <div class="flex items-center justify-center gap-1.5 text-gray-500 mb-3 md:hidden animate-pulse">
                         <i data-lucide="chevrons-left" class="w-3.5 h-3.5 text-blue-400"></i>
-                        <span class="text-[10px] font-semibold tracking-wider uppercase text-gray-400">Geser menu ke samping</span>
+                        <span class="text-[10px] font-semibold tracking-wider uppercase text-gray-400">Geser Kategori Ke Samping</span>
                         <i data-lucide="chevrons-right" class="w-3.5 h-3.5 text-blue-400"></i>
                     </div>
 
-                    <!-- Kategori Produk yang dapat di-scroll horizontal di HP, dan rata tengah di desktop -->
-                    <div class="flex overflow-x-auto pb-4 mb-8 space-x-2 no-scrollbar scroll-smooth -mx-4 px-4 md:mx-0 md:px-0 justify-start md:justify-center">
+                    <!-- Kategori Produk yang dapat di-scroll horizontal dengan Bar Indikator Scroll Kustom (custom-scrollbar) -->
+                    <div class="flex overflow-x-auto pb-4 mb-8 space-x-2 custom-scrollbar scroll-smooth -mx-4 px-4 md:mx-0 md:px-0 justify-start md:justify-center">
                         <button onclick="setCategory('all', this)" class="category-btn whitespace-nowrap px-4 py-2 rounded-full text-xs md:text-sm font-semibold transition ${currentCategory === 'all' ? 'bg-blue-600 text-white' : 'bg-gray-800 text-gray-400 hover:text-white'}">Semua Produk</button>
                         <button onclick="setCategory('video', this)" class="category-btn whitespace-nowrap px-4 py-2 rounded-full text-xs md:text-sm font-semibold transition ${currentCategory === 'video' ? 'bg-blue-600 text-white' : 'bg-gray-800 text-gray-400 hover:text-white'}">Video Editor</button>
                         <button onclick="setCategory('streaming', this)" class="category-btn whitespace-nowrap px-4 py-2 rounded-full text-xs md:text-sm font-semibold transition ${currentCategory === 'streaming' ? 'bg-blue-600 text-white' : 'bg-gray-800 text-gray-400 hover:text-white'}">Streaming & Film</button>
@@ -572,15 +598,43 @@
                 else if (key === 'canva') { hoverColor = 'hover:border-purple-500'; buttonColor = 'group-hover:bg-purple-600'; }
                 else if (key === 'netflix') { hoverColor = 'hover:border-red-600'; buttonColor = 'group-hover:bg-red-600'; }
 
+                // Memecah Judul Produk Menjadi 3 Baris Sesuai Request User
+                let brandName = product.title;
+                let tierType = '';
+                
+                if (product.title.endsWith(' Premium')) {
+                    brandName = product.title.slice(0, -8);
+                    tierType = 'Premium';
+                } else if (product.title.endsWith(' Pro')) {
+                    brandName = product.title.slice(0, -4);
+                    tierType = 'Pro';
+                }
+
                 outputHTML += `
-                    <div onclick="renderDetail('${key}')" class="group cursor-pointer bg-gray-800 rounded-2xl p-4 border border-gray-700 ${hoverColor} transition-all hover:-translate-y-1 shadow-xl relative overflow-hidden">
+                    <div onclick="renderDetail('${key}')" class="group cursor-pointer bg-gray-800 rounded-2xl p-4 border border-gray-700 ${hoverColor} transition-all hover:-translate-y-1 shadow-xl relative overflow-hidden flex flex-col justify-between">
                         <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition"></div>
-                        <div class="h-32 rounded-xl mb-4 overflow-hidden">
-                            <img src="${product.image}" class="w-full h-full object-cover">
+                        <div>
+                            <!-- Bagian Foto Produk Asli -->
+                            <div class="h-28 md:h-32 rounded-xl mb-4 overflow-hidden bg-gray-900/50">
+                                <img src="${product.image}" class="w-full h-full object-cover" alt="${product.title}">
+                            </div>
+                            <!-- Baris 1: Brand Aplikasi -->
+                            <h3 class="text-center font-black text-sm md:text-base text-gray-100 group-hover:text-blue-400 transition-colors truncate">
+                                ${brandName}
+                            </h3>
+                            <!-- Baris 2: Tier Paket Premium / Pro -->
+                            <span class="text-center block text-xs font-semibold text-purple-400 tracking-wide mt-0.5">
+                                ${tierType}
+                            </span>
+                            <!-- Baris 3: Subtitle / Deskripsi Utama -->
+                            <p class="text-center text-[10px] md:text-xs text-gray-400 mt-1 mb-3 truncate px-1">
+                                ${product.subtitle}
+                            </p>
                         </div>
-                        <h3 class="text-center font-bold text-sm md:text-base group-hover:text-blue-400 transition-colors">${product.title}</h3>
-                        <p class="text-center text-xs text-gray-400 mb-3 truncate">${product.subtitle}</p>
-                        <button class="w-full bg-gray-700 ${buttonColor} py-2 rounded-lg text-xs md:text-sm transition-colors font-medium">Lihat Paket</button>
+                        <!-- Tombol Aksi Selalu Sejajar di Bawah Card -->
+                        <button class="w-full bg-gray-700 ${buttonColor} py-2 rounded-lg text-xs md:text-sm transition-colors font-medium">
+                            Lihat Paket
+                        </button>
                     </div>
                 `;
             }
@@ -597,6 +651,12 @@
         }
 
         function renderDetail(productId) {
+            // Sembunyikan FAQ saat masuk ke halaman detail
+            const faqSection = document.getElementById('faq-section');
+            if (faqSection) {
+                faqSection.classList.add('hidden');
+            }
+
             const product = products[productId];
             const app = document.getElementById('app');
 
@@ -700,7 +760,7 @@
             }
         }
 
-        // Initialize application on load
+        // Jalankan website pertama kali
         renderHome();
     </script>
 </body>
